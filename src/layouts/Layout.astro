@@ -1,5 +1,7 @@
 ---
+import { Player } from '@/components/Player';
 import AsideMenu from '../components/AsideMenu.astro'
+import { ClientRouter } from 'astro:transitions';
 ---
 
 
@@ -10,7 +12,8 @@ import AsideMenu from '../components/AsideMenu.astro'
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Spotify Clone</title>
+		<ClientRouter  fallback='none'/>
 	</head>
 	<body>
 		<div id="app" class="relative h-screen p-2 gap-2 ">
@@ -22,7 +25,9 @@ import AsideMenu from '../components/AsideMenu.astro'
 					<slot />
 				</main>
 
-			<footeer class="[grid-area:player]  min-h-[100px] "></footeer>
+			<footer class="[grid-area:player] h-[80px]">
+				<Player client:load transition:name="media-player" transition:persist/>
+			</footer>
 
 		</div>
 		
