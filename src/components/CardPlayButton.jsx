@@ -13,7 +13,6 @@ export function CardPlayButton({ id, size = 'small' }) {
     const isPlayingPlaylist = isPlaying && currentMusic?.playlist?.id === id
 
     const handleClick = async () => {
-        console.log(isPlayingPlaylist)
         
         if(isPlayingPlaylist){
             setIsPlaying(!isPlaying)
